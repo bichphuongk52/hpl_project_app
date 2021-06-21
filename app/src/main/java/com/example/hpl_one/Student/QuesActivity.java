@@ -50,10 +50,13 @@ public class QuesActivity extends AppCompatActivity implements View.OnClickListe
         x = db.getQues(id);
         ques.setText(x.getQues());
         ans_a.setText("A. "+x.getAnswer_a());
-        ans_a.setBackgroundColor();
         ans_b.setText("B. "+x.getAnswer_b());
         ans_c.setText("C. "+x.getAnswer_c());
         ans_d.setText("D. "+x.getAnswer_d());
+        ans_a.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ans));
+        ans_b.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ans));
+        ans_c.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ans));
+        ans_d.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ans));
     }
 
     @Override
