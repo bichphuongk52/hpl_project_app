@@ -5,16 +5,20 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.hpl_one.Student.StudentActivity;
+
 public class LoginActivity extends AppCompatActivity {
     private EditText login_username, login_password, tv_signup;
     private CheckBox login_remember;
     private AppCompatButton login_btn;
+    private SharedPreferences pref = getSharedPreferences(Config.LOGIN_STATE, MODE_PRIVATE);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,27 +55,33 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
+                //login condition here
                 if (true) {
-                    //login condition here
+
+                    //if student
                     if (true) {
-                        //if student
                         Intent student_intent = new Intent(LoginActivity.this, StudentActivity.class);
                         student_intent.putExtra("username", username);
                         startActivity(student_intent);
                         finish();
                     }
+
+                    //if admin
 //                    if (true) {
-//                        //if admin
 //                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
 //                        finish();
 //                    }
                     if (login_remember.isChecked()) {
                         //Use SharePreferences here to save login state
+                        pref.edit().putString(Config.LOGINED, String.valueOf(true)).apply();
                     } else {
                         //Detele save login state
+                        SharedPreferences.Editor editor = pref.edit();
+                        editor.remove(Config.LOGINED);
+                        editor.apply();
                     }
                 } else {
-                    Toast.makeText(getApplicationContext(), "Username is not existed!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Account is not existed!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
