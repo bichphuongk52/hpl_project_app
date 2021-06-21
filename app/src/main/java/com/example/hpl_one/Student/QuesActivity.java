@@ -15,7 +15,7 @@ import com.example.hpl_one.SQLite.SQliteQuestionHelper;
 
 public class QuesActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView ques;
-    private AppCompatButton ans_a, ans_b, ans_c, ans_d, next_ques;
+    private AppCompatButton ans_a, ans_b, ans_c, ans_d;
     private long totalQues = 0;
     private int currentQuesId = 0;
     private SQliteQuestionHelper db;
@@ -34,12 +34,14 @@ public class QuesActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initVar() {
+        //init DB
+        db = new SQliteQuestionHelper(getApplicationContext());
+
         ques        = findViewById(R.id.student_ques);
         ans_a       = findViewById(R.id.ans_a);
         ans_b       = findViewById(R.id.ans_b);
         ans_c       = findViewById(R.id.ans_c);
         ans_d       = findViewById(R.id.ans_d);
-        next_ques   = findViewById(R.id.ques_next);
 
         //Get amount of ques
         totalQues = db.getQuesAmount();
