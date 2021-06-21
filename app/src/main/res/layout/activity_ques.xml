@@ -11,7 +11,99 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/main_sc"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_close"
+                android:layout_width="25dp"
+                android:layout_height="25dp"/>
+            <TextView
+                android:id="@+id/student_ques"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:fontFamily="@font/arial"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:text="Ques1"
+                android:layout_margin="5dp"
+                android:gravity="center_vertical"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/ans_a"
+                    android:fontFamily="@font/arial"
+                    android:text="A. "
+                    android:textAllCaps="false"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/border_button_ans"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/ans_b"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/arial"
+                    android:text="B. "
+                    android:textAllCaps="false"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/border_button_ans"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/ans_c"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/arial"
+                    android:text="C. "
+                    android:textAllCaps="false"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/border_button_ans"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/ans_d"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/arial"
+                    android:text="D. "
+                    android:textAllCaps="false"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/border_button_ans"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_marginTop="30dp"
+                    android:id="@+id/ques_next"
+                    android:textAllCaps="false"
+                    android:text="Next >"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/arial"
+                    android:textSize="18dp"
+                    android:background="@drawable/border_button_next"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
