@@ -10,15 +10,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hpl_one.Student.StudentActivity;
 
 public class LoginActivity extends AppCompatActivity {
-    private EditText login_username, login_password, tv_signup;
+    private EditText login_username, login_password;
     private CheckBox login_remember;
     private AppCompatButton login_btn;
-    private SharedPreferences pref = getSharedPreferences(Config.LOGIN_STATE, MODE_PRIVATE);
+    private SharedPreferences pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +36,9 @@ public class LoginActivity extends AppCompatActivity {
 
     @SuppressLint("WrongViewCast")
     private void initVariable() {
+        pref = getSharedPreferences(Config.LOGIN_STATE, MODE_PRIVATE);
         login_username  = findViewById(R.id.login_username);
         login_password  = findViewById(R.id.login_password);
-        tv_signup       = findViewById(R.id.tv_signup);
         login_remember  = findViewById(R.id.login_remember);
         login_btn       = findViewById(R.id.login_btn);
         login_remember.setChecked(false);
