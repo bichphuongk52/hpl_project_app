@@ -16,6 +16,11 @@ public class LoadingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
         pref = getSharedPreferences(Config.LOGIN_STATE, MODE_PRIVATE);
+        try {
+            Thread.sleep(3500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         //Check user login or not
         if (pref.contains(Config.LOGINED) && Boolean.valueOf(pref.getString(Config.LOGINED, null))) {
             //if login state is saved in SharePreferences

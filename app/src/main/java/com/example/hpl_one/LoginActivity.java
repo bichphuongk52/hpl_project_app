@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
 
     @SuppressLint("WrongViewCast")
     private void initVariable() {
-        pref = getSharedPreferences(Config.LOGIN_STATE, MODE_PRIVATE);
+        pref            = getSharedPreferences(Config.LOGIN_STATE, MODE_PRIVATE);
         login_username  = findViewById(R.id.login_username);
         login_password  = findViewById(R.id.login_password);
         login_remember  = findViewById(R.id.login_remember);

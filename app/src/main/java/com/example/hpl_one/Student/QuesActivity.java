@@ -7,9 +7,11 @@ import androidx.core.content.ContextCompat;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.hpl_one.Modules.Question;
 import com.example.hpl_one.R;
@@ -25,6 +27,7 @@ public class QuesActivity extends AppCompatActivity {
     private int currentQuesId = 0;
     private List<Question> data = new ArrayList<>();
     private Question x;
+    private boolean isAnsed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +92,18 @@ public class QuesActivity extends AppCompatActivity {
         data.add(new Question(0, "In many western cultures, the White Lily is a flower that is representative of purity and sweetness\n What is the same meaning with 'representative'?", "advantageous", "marvelous", "symbolic", "universal", "C", "1"));
         data.add(new Question(1, "I can’t figure out Daisy’s attitude toward the trip – she is blowing hot and cold about it. First she’s all excited, but then she seems reluctant to go\n What is the same meaning with 'is blowing hot and cold'?", "keeps talking about trivial things", "keeps going", "keeps changing her mood", "keeps making you confused", "C", "1"));
         data.add(new Question(2, "Social networking aims at promoting and aiding communication. _____", "However", "Otherwise", "Moreover", "As a result", "A", "1"));
+        data.add(new Question(3, "Mark the letter A, B, C or D on your answer sheet to indicate the word that ", "consider", "similar", "actually", "carefully", "A", "1"));
+        data.add(new Question(4, "They are studying pronunciation with Mr Brown,_____?", "are they", "aren't they", "do they", "don't they", "B", "1"));
+        data.add(new Question(5, "She works seven days______week.", "a", "the", "an", "no article", "A", "1"));
+        data.add(new Question(6, "You are old enough. I think it is high time you applied_____a job", "in", "of", "for", "upon", "C", "1"));
+        data.add(new Question(7, "Most children enjoy________with their parents and siblings", "play", "to play", "playing", "played", "C", "1"));
+        data.add(new Question(8, "If she______rich, she would travel around the world", "would be", "is", "has been", "were", "D", "1"));
+        data.add(new Question(9, "We have lost touch since we________school three years ago", "have left", "leave", "left", "had left", "C", "1"));
+        data.add(new Question(10, "_________it was so cold, he went out without an overcoat", "If", "Since", "Although", "Because", "C", "1"));
+        data.add(new Question(11, "She will phone you_______", "as soon as she arrives in Ho Chi Minh city", "when she arrived in Ho Chi Minh city", "after she had arrived in Ho Chi Minh city", "until she arrived in Ho Chi Minh city", "A", "1"));
+        data.add(new Question(12, "Only one of the people______was qualified for the job", "interviewed", "interviewing", "to interview", "who interviewing", "A", "1"));data.add(new Question(10, "_________it was so cold, he went out without an overcoat", "If", "Since", "Although", "Because", "C", "1"));
+        data.add(new Question(13, "Many countries’ cultural______is a result of talking in immigrants from all over the world", "diversified", "diversity", "diverse", "diversify", "B", "1"));
+        data.add(new Question(14, "My parents will need to_____their living room soon. The paintwork needs refreshing", "dig up", "do over", "look after", "pull down", "B", "1"));
     }
 
     @Override
@@ -106,10 +121,16 @@ public class QuesActivity extends AppCompatActivity {
         main_sc     = findViewById(R.id.main_sc);
 
         //Get amount of ques
+        isAnsed = true;
         showQues(currentQuesId);
     }
 
     private void showQues(int id) {
+        if (!isAnsed) {
+            Toast.makeText(getApplicationContext(), "Answer question first!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        isAnsed = false;
         ans_a.setEnabled(true);
         ans_b.setEnabled(true);
         ans_c.setEnabled(true);
@@ -127,6 +148,7 @@ public class QuesActivity extends AppCompatActivity {
     }
 
     private void checkAns(String ans) {
+        isAnsed = true;
         ans_a.setEnabled(false);
         ans_b.setEnabled(false);
         ans_c.setEnabled(false);
