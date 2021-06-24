@@ -91,19 +91,21 @@
                     android:background="@drawable/ans"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:layout_marginTop="30dp"
-                    android:id="@+id/ques_next"
-                    android:textAllCaps="false"
-                    android:text="Next >"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/arial"
-                    android:textSize="18dp"
-                    android:background="@drawable/border_button_next"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
             </LinearLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="30dp"
+                android:id="@+id/ques_next"
+                android:textAllCaps="false"
+                android:text="Next >"
+                android:textColor="@color/white"
+                android:fontFamily="@font/arial"
+                android:textSize="18dp"
+                android:background="@drawable/border_button_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
