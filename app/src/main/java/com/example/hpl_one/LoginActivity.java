@@ -56,8 +56,6 @@ public class LoginActivity extends AppCompatActivity {
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                login_btn.setClickable(false);
-                login_btn.setText("Wait...");
                 String email    = login_email.getText().toString();
                 String password = login_password.getText().toString();
 
@@ -65,6 +63,8 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Email and password must be filled!", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                login_btn.setClickable(false);
+                login_btn.setText("Wait...");
                 APIConfig x = RetrofitConfig.JSONconfig().create(APIConfig.class);
                 Call<User> g = x.login(email, password);
                 g.enqueue(new Callback<User>() {
