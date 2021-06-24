@@ -24,11 +24,11 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/login_username"
+            android:id="@+id/login_email"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/login_input"
-            android:hint="Username"
+            android:hint="Email"
             android:maxWidth="350dp" />
 
         <EditText
@@ -42,6 +42,7 @@
             android:maxWidth="350dp" />
 
         <RelativeLayout
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 

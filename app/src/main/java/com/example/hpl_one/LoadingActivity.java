@@ -17,10 +17,10 @@ public class LoadingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_loading);
         pref = getSharedPreferences(Config.LOGIN_STATE, MODE_PRIVATE);
         //Check user login or not
-        if (pref.contains(Config.LOGINED) && Boolean.valueOf(pref.getString(Config.LOGINED, null))) {
+        if (pref.contains(Config.SSID) && !pref.getString(Config.SSID, null).isEmpty()) {
             //if login state is saved in SharePreferences
             Intent student_intent = new Intent(LoadingActivity.this, StudentActivity.class);
-            student_intent.putExtra("username", String.valueOf(pref.getString(Config.LOGINED, null)));
+            student_intent.putExtra("username", String.valueOf(pref.getString(Config.USER, null)));
             startActivity(student_intent);
         } else {
             //if user not login or state is not exist

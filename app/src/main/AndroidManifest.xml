@@ -3,6 +3,7 @@
     package="com.example.hpl_one">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hpl_one">
-        <activity android:name=".Student.PrepareActivity"></activity>
+        <activity android:name=".Call_apiActivity">
+        </activity>
+        <activity android:name=".Student.PrepareActivity" />
         <activity android:name=".Student.QuesActivity" />
         <activity android:name=".LoadingActivity">
             <intent-filter>

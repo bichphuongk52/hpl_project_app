@@ -11,14 +11,12 @@ import android.widget.TextView;
 
 import com.example.hpl_one.Modules.Question;
 import com.example.hpl_one.R;
-import com.example.hpl_one.SQLite.SQliteQuestionHelper;
 
 public class QuesActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView ques;
     private AppCompatButton ans_a, ans_b, ans_c, ans_d;
     private long totalQues = 0;
     private int currentQuesId = 0;
-    private SQliteQuestionHelper db;
     private Question x;
 
     @Override
@@ -35,7 +33,6 @@ public class QuesActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initVar() {
         //init DB
-        db = new SQliteQuestionHelper(getApplicationContext());
 
         ques        = findViewById(R.id.student_ques);
         ans_a       = findViewById(R.id.ans_a);
@@ -44,12 +41,10 @@ public class QuesActivity extends AppCompatActivity implements View.OnClickListe
         ans_d       = findViewById(R.id.ans_d);
 
         //Get amount of ques
-        totalQues = db.getQuesAmount();
-        showQues(currentQuesId);
+        showQues();
     }
 
-    private void showQues(int id) {
-        x = db.getQues(id);
+    private void showQues() {
         ques.setText(x.getQues());
         ans_a.setText("A. "+x.getAnswer_a());
         ans_b.setText("B. "+x.getAnswer_b());
@@ -79,9 +74,9 @@ public class QuesActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.ques_next:
                 if ((currentQuesId < totalQues)) {
-                    showQues(++currentQuesId);
+                    showQues();
                 } else {
-                    showQues(0);
+                    showQues();
                 }
                 break;
         }

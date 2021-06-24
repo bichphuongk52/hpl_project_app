@@ -2,9 +2,9 @@ package com.example.hpl_one.Modules;
 
 public class Question {
     private int ID;
-    private String ques, answer_a, answer_b, answer_c, answer_d, correct_ans, level;
+    private String ques, answer_a, answer_b, answer_c, answer_d, correct_ans;
 
-    public Question(int ID, String ques, String answer_a, String answer_b, String answer_c, String answer_d, String correct_ans, String level) {
+    public Question(int ID, String ques, String answer_a, String answer_b, String answer_c, String answer_d, String correct_ans) {
         this.ID = ID;
         this.ques = ques;
         this.answer_a = answer_a;
@@ -12,7 +12,6 @@ public class Question {
         this.answer_c = answer_c;
         this.answer_d = answer_d;
         this.correct_ans = correct_ans;
-        this.level = level;
     }
 
     public int getID() {
@@ -69,13 +68,5 @@ public class Question {
 
     public void setCorrect_ans(String correct_ans) {
         this.correct_ans = correct_ans;
-    }
-
-    public String getLevel() {
-        return level;
-    }
-
-    public void setLevel(String level) {
-        this.level = level;
     }
 }
