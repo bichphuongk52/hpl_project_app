@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.hpl_one.Modules.User;
 import com.example.hpl_one.Services.APIConfig;
 import com.example.hpl_one.Services.RetrofitConfig;
+import com.example.hpl_one.Student.QuesActivity;
 import com.example.hpl_one.Student.StudentActivity;
 
 import retrofit2.Call;
@@ -55,7 +56,9 @@ public class LoginActivity extends AppCompatActivity {
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = login_email.getText().toString();
+                login_btn.setClickable(false);
+                login_btn.setText("Wait...");
+                String email    = login_email.getText().toString();
                 String password = login_password.getText().toString();
 
                 if (email.isEmpty() || password.isEmpty()) {
@@ -69,40 +72,56 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(Call<User> call, Response<User> response) {
                         if (response.isSuccessful()) {
                             User u = response.body();
-                            if (login_remember.isChecked()) {
-                                //Use SharePreferences here to save SSID
-                                pref.edit().putString(Config.SSID, String.valueOf(u.getSsid())).apply();
-                                pref.edit().putString(Config.USER, String.valueOf(u.getUsername())).apply();
-                                pref.edit().putString(Config.EMAIL, email).apply();
-                            } else {
-                                //Detele save login state
-                                SharedPreferences.Editor editor = pref.edit();
-                                editor.remove(Config.SSID);
-                                editor.remove(Config.USER);
-                                editor.remove(Config.EMAIL);
-                                editor.apply();
-                            }
 
-                            if (Integer.parseInt(u.getRoles()) == 0) {
-                                //student
-                                Intent student_intent = new Intent(LoginActivity.this, StudentActivity.class);
-                                student_intent.putExtra("username", u.getUsername());
-                                startActivity(student_intent);
-                                finish();
-                            }
+//                            if (login_remember.isChecked()) {
+//                                //Use SharePreferences here to save SSID
+//                                if (
+//                                       pref.edit().putString(Config.SSID, String.valueOf(u.getSsid())).commit()
+//                                    && pref.edit().putString(Config.USER, String.valueOf(u.getUsername())).commit()
+//                                    && pref.edit().putString(Config.EMAIL, email).commit()) {
+//
+//                                }
+//
+//                            } else {
+//                                //Detele save login state
+//                                SharedPreferences.Editor editor = pref.edit();
+//                                editor.remove(Config.SSID);
+//                                editor.remove(Config.USER);
+//                                editor.remove(Config.EMAIL);
+//                                editor.apply();
+//                            }
 
-                            if (Integer.parseInt(u.getRoles()) == 1) {
-                                //admin - DOING
+                            if (
+                                    pref.edit().putString(Config.SSID, String.valueOf(u.getSsid())).commit()
+                                            && pref.edit().putString(Config.USER, String.valueOf(u.getUsername())).commit()
+                                            && pref.edit().putString(Config.EMAIL, email).commit()) {
+                                if (Integer.parseInt(u.getRoles()) == 0) {
+                                    //student
+                                    Intent student_intent = new Intent(LoginActivity.this, StudentActivity.class);
+                                    student_intent.putExtra("username", u.getUsername());
+                                    startActivity(student_intent);
+                                    finish();
+                                }
+
+                                if (Integer.parseInt(u.getRoles()) == 1) {
+                                    //admin - DOING
+                                }
+                                login_btn.setClickable(true);
+                                login_btn.setText("Login");
                             }
                         }
 
                         if (response.code() == 404) {
+                            login_btn.setClickable(true);
+                            login_btn.setText("Login");
                             Toast.makeText(getApplicationContext(), "Account is not existed!", Toast.LENGTH_SHORT).show();
                         }
                     }
 
                     @Override
                     public void onFailure(Call<User> call, Throwable t) {
+                        login_btn.setClickable(true);
+                        login_btn.setText("Login");
                         Toast.makeText(getApplicationContext(), "Unknow error!", Toast.LENGTH_SHORT).show();
                     }
                 });

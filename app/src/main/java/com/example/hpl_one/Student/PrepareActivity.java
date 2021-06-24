@@ -43,13 +43,13 @@ public class PrepareActivity extends AppCompatActivity {
         level = Integer.valueOf(level_intent.getStringExtra("level"));
 
         switch (level) {
-            case 1:
+            case 0:
                 desc.setText(easy_mode);
                 break;
-            case 2:
+            case 1:
                 desc.setText(medium_mode);
                 break;
-            case 3:
+            case 2:
                 desc.setText(difficult_mode);
                 break;
             default:

@@ -1,12 +1,21 @@
 package com.example.hpl_one.Modules;
 
-public class User {
-    private String ssid, username, roles;
+import java.io.Serializable;
+
+public class User implements Serializable {
+    private String ssid, username, roles, level;
 
     public User(String ssid, String username, String roles) {
         this.ssid = ssid;
         this.username = username;
         this.roles = roles;
+    }
+
+    public User(String ssid, String username, String roles, String level) {
+        this.ssid = ssid;
+        this.username = username;
+        this.roles = roles;
+        this.level = level;
     }
 
     public String getSsid() {
@@ -31,5 +40,13 @@ public class User {
 
     public void setRoles(String roles) {
         this.roles = roles;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
     }
 }
