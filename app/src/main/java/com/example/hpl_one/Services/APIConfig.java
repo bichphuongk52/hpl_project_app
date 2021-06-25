@@ -45,4 +45,8 @@ public interface APIConfig {
             @Field("level") String level
     );
 
+    //Logout
+    @FormUrlEncoded
+    @POST("api/logout/")
+    Call logout(@Field("ssid") String ssid, @Field("email") String email);
 }

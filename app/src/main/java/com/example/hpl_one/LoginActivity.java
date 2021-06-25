@@ -98,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                                 if (Integer.parseInt(u.getRoles()) == 0) {
                                     //student
                                     Intent student_intent = new Intent(LoginActivity.this, StudentActivity.class);
-                                    student_intent.putExtra("username", u.getUsername());
+//                                    student_intent.putExtra("username", u.getUsername());
                                     startActivity(student_intent);
                                     finish();
                                 }
