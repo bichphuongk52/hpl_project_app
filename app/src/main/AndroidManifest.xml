@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hpl_one">
-        <activity android:name=".Call_apiActivity">
+        <activity android:name=".TestRetrofit">
         </activity>
         <activity android:name=".Student.PrepareActivity" />
         <activity android:name=".Student.QuesActivity" />

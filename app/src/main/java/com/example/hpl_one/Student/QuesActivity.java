@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ import retrofit2.Response;
 
 public class QuesActivity extends AppCompatActivity {
     private TextView ques;
+    private ImageView exittoMain;
     private AppCompatButton ans_a, ans_b, ans_c, ans_d, next_ques;
     private APIConfig f;
     private SharedPreferences pref;
@@ -78,6 +80,13 @@ public class QuesActivity extends AppCompatActivity {
                 showQues(email, ssid, level);
             }
         });
+        exittoMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(QuesActivity.this, StudentActivity.class));
+                finish();
+            }
+        });
     }
 
     private void initVar() {
@@ -93,6 +102,7 @@ public class QuesActivity extends AppCompatActivity {
         ans_c       = findViewById(R.id.ans_c);
         ans_d       = findViewById(R.id.ans_d);
         next_ques   = findViewById(R.id.ques_next);
+        exittoMain  = findViewById(R.id.main_sc);
 
         //Get amount of ques
         isAns       = true;

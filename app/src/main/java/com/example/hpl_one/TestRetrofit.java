@@ -22,7 +22,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 
-public class Call_apiActivity extends AppCompatActivity {
+public class TestRetrofit extends AppCompatActivity {
     private Button call;
     private TextView show;
     public static final String baseURL = "http://192.168.0.2:8080/";

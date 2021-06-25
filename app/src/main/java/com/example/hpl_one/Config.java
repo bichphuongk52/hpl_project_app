@@ -8,6 +8,6 @@ public class Config {
     public static final String EMAIL        = "email";
 
     //Base URL
-//    public static final String BASE_URL = "http://192.168.0.2:8080/";
-    public static final String BASE_URL = "https://hplbe.herokuapp.com/";
+    public static final String BASE_URL = "http://192.168.0.2:8080/";
+//    public static final String BASE_URL = "https://hplbe.herokuapp.com/";
 }
